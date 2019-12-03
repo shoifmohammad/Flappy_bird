@@ -246,6 +246,7 @@ def game_loop():
     playerY = screen_height*0.5 - player_height/2
     player_acc = 3
     global score
+    global high_score
     pos = 0
     pos_next = pos + background_img_full.get_width()
     run = True
@@ -290,6 +291,8 @@ def game_loop():
             pipe_mid = (pipeX[i] + pipe_width)/2
             if pipe_mid <= player_mid < pipe_mid-pipe_speed/2 :
                 score += 5
+                if score > high_score:
+                    high_score = score
 
         # Checking for collision
         for i in range(int(num_of_pipes)):
